@@ -1,0 +1,10 @@
+{
+  "name": "Meme Mob \u2014 Meme Studio",
+  "short_name": "Meme Mob",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f4f5",
+  "theme_color": "#171717",
+  "description": "Create Instagram-ready memes in your browser.",
+  "icons": []
+}

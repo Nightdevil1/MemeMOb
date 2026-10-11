@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#171717">
+<title>Meme Mob — Meme Studio</title>
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="logo-mark">MM</div>
+  <div><div class="brand">MEME MOB</div><div class="tagline">Make the scroll stop.</div></div>
+  <span class="local-badge">LOCAL STUDIO</span>
+</header>
+<main class="layout">
+  <section class="editor">
+    <div class="heading-row"><div><p class="eyebrow">CREATOR STUDIO</p><h1>Make your next meme.</h1><p class="muted">Pick a vibe, add a photo, generate punchlines and export for Instagram.</p></div></div>
+    <label class="field-label" for="topic">What's the meme about?</label>
+    <input id="topic" placeholder="e.g. Monday meetings, dating, office life…" maxlength="120">
+    <div class="two-col">
+      <div><label class="field-label" for="vibe">Vibe</label><select id="vibe"><option value="relatable">Relatable</option><option value="savage">Savage (playful)</option><option value="desi">Desi humour</option><option value="dark">Dark-ish humour</option><option value="wholesome">Wholesome</option><option value="work">Office / business</option></select></div>
+      <div><label class="field-label" for="format">Instagram format</label><select id="format"><option value="portrait">Portrait post · 4:5</option><option value="square">Square post · 1:1</option><option value="story">Story / Reel cover · 9:16</option></select></div>
+    </div>
+    <div class="upload-box">
+      <label class="field-label" for="imageUpload">Your image (optional)</label>
+      <input id="imageUpload" type="file" accept="image/*">
+      <p class="hint">Use your own photo or an image you have permission to use. No image? Start with a colour background.</p>
+    </div>
+    <div class="two-col">
+      <div><label class="field-label" for="topText">Top text</label><textarea id="topText" rows="2" maxlength="150" placeholder="WHEN YOU SAY “5 MINUTES”"></textarea></div>
+      <div><label class="field-label" for="bottomText">Bottom text</label><textarea id="bottomText" rows="2" maxlength="150" placeholder="AND SHOW UP 45 MINUTES LATER"></textarea></div>
+    </div>
+    <div class="button-row">
+      <button id="generateBtn" class="primary">⚡ Generate punchlines</button>
+      <button id="randomBtn" class="secondary">Surprise me</button>
+    </div>
+    <div id="ideas" class="ideas" aria-live="polite"></div>
+    <div class="divider"></div>
+    <div class="two-col">
+      <div><label class="field-label" for="fontSize">Text size</label><input id="fontSize" type="range" min="24" max="76" value="48"></div>
+      <div><label class="field-label" for="textColor">Text colour</label><select id="textColor"><option value="#ffffff">White</option><option value="#ffe600">Meme yellow</option><option value="#111111">Black</option></select></div>
+    </div>
+    <label class="check"><input id="stroke" type="checkbox" checked> Add readable text outline</label>
+    <div class="button-row">
+      <button id="downloadBtn" class="primary">Download PNG</button>
+      <button id="copyCaptionBtn" class="secondary">Copy caption + hashtags</button>
+    </div>
+    <p id="notice" class="notice" aria-live="polite">Your images stay in this browser session; no upload server is used.</p>
+  </section>
+
+  <section class="upgrade-panel">
+    <div class="preview-head"><div><p class="eyebrow">MAJOR UPGRADE · V2</p><h2>Trend radar & content planner</h2></div><span class="pill">BETA</span></div>
+    <p class="muted">Track search-interest signals, save drafts on this device, and build a posting queue. Trends are signals—not a live Instagram viral ranking.</p>
+    <div class="button-row"><button id="refreshTrends" class="secondary">↻ Refresh trend snapshot</button><button id="saveDraft" class="primary">＋ Save current draft</button></div>
+    <div id="trendStatus" class="notice">Loading India trend snapshot…</div><div id="trendList" class="trend-grid"></div>
+    <div class="divider"></div>
+    <h3>Posting planner</h3>
+    <div class="two-col"><div><label class="field-label" for="planDate">Planned date</label><input id="planDate" type="date"></div><div><label class="field-label" for="planTime">Time (IST)</label><input id="planTime" type="time" value="19:00"></div></div>
+    <div class="button-row"><button id="queueDraft" class="secondary">Add to local queue</button><button id="exportQueue" class="secondary">Export queue CSV</button></div>
+    <div id="queueList" class="saved-list"></div>
+    <div class="divider"></div><h3>Saved drafts</h3><div id="savedDrafts" class="saved-list"></div>
+    <p class="hint">V2 stores drafts and the queue only in this browser. It does not publish automatically. Official publishing requires Meta API authorization and a Professional Instagram account. <a href="https://www.postman.com/meta/instagram/documentation/6yqw8pt/instagram-api" target="_blank" rel="noopener">Meta Instagram API docs ↗</a></p>
+  </section>
+  <section class="preview-section">
+    <div class="preview-head"><div><p class="eyebrow">LIVE PREVIEW</p><h2>Your meme</h2></div><span id="dimensionBadge" class="pill">1080 × 1350</span></div>
+    <div class="canvas-wrap"><canvas id="memeCanvas" width="1080" height="1350" aria-label="Meme preview"></canvas></div>
+    <div class="caption-card"><div class="caption-title">Post caption idea</div><p id="captionText">POV: you came for one meme and lost 40 minutes. 💀</p><div id="hashtags" class="hashtags">#memes #relatable #reels</div></div>
+    <div class="tip-card"><strong>Creator tip</strong><p>There’s no guaranteed viral formula. Keep the setup instantly recognisable, make the punchline short, and test different versions with your audience.</p></div>
+  </section>
+</main>
+<footer>MEME MOB · A browser-based meme maker. Review images, music, likenesses and captions for rights and context before posting.</footer>
+<script src="app.js"></script>
+<script src="upgrade.js"></script>
+</body>
+</html>
